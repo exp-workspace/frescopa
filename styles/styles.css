@@ -151,7 +151,7 @@
   /* Additional tokens */
   --type-fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono',
     monospace;
-  --background-color: var(--color-neutral-50);
+  --background-color: light-green;
   --nav-height: 70px;
   --site-width: 1360px;
   --frescopa-color-background: #F4E9DC;
@@ -198,7 +198,7 @@ body {
   font: normal normal normal 18px/24px Roboto, sans-serif;
   margin: 0;
   color: #58181D;
-  background-color:#fff;
+  background-color: var(--background-color);
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
