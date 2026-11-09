@@ -39,11 +39,15 @@ function generateSidekickPayload() {
 
 export default function init(payload) {
   const { search } = window.location;
-  const ref = new URLSearchParams(search).get('quick-edit');
+  const params = new URLSearchParams(search);
+  const ref = params.get('quick-edit');
   let origin;
   if (ref === 'on' || !ref) origin = 'https://da.live';
   if (ref === 'local') origin = 'http://localhost:6456';
   if (!origin) origin = `https://${ref}--da-nx--adobe.aem.live`;
   addImportmap();
-  loadMoudle(origin, payload || generateSidekickPayload());
+  if (params.has('quick-edit')) {
+    return import(`${origin}/nx/public/plugins/quick-edit/quick-edit-init.js`);
+  }
+  return loadMoudle(origin, payload || generateSidekickPayload());
 }
